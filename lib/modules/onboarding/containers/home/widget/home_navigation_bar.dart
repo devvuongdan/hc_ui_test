@@ -1,14 +1,11 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
+
 import 'package:hcm_ui_test/gen/assets.gen.dart';
 import 'package:hcm_ui_test/modules/common/export_packages.dart';
 import 'package:hcm_ui_test/modules/common/localization/localization_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restart_app/restart_app.dart';
 
 class HomeNavigationBar extends StatefulWidget {
   const HomeNavigationBar({
@@ -43,15 +40,9 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: TouchableOpacity(
-                  onTap: () async {
+                  onTap: () {
                     _localeCubit.toggleLocale();
                     //FIXME: Chỉ sử dụng trong giai đoạn đầu do chưa rõ behavior của tính năng
-
-                    await Future.delayed(const Duration(seconds: 2));
-
-                    Platform.isIOS
-                        ? Phoenix.rebirth(context)
-                        : Restart.restartApp(webOrigin: '[your main route]');
                   },
                   child: Container(
                       height: 32,

@@ -68,9 +68,9 @@ dependencies:
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^1.2.2
 
-  # Just use this package for simple studycase
-  restart_app: ^1.1.1
-  flutter_phoenix: ^1.1.0
+  # # Just use this package for simple studycase
+  # restart_app: ^1.1.1
+  # flutter_phoenix: ^1.1.0
 
 dev_dependencies:
   flutter_test:
