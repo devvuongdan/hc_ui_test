@@ -66,7 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 39,
           color: const Color(0xFF1E1F1F),
         ),
-        HomeFincance(),
+        HomeFincance(
+          cards: null,
+        ),
         const HomeActionSheet()
       ],
     );

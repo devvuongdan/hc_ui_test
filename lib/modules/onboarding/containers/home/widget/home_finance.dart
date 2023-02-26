@@ -8,15 +8,37 @@ import '../../../../common/export_packages.dart';
 
 class HomeFincance extends StatelessWidget {
   HomeFincance({
-    List<VDCardSmallConfigs>? cards,
+    required this.cards,
     Key? key,
-  })  : _cards = cards ?? mockSmallCards,
-        super(key: key);
+  }) : super(key: key);
 
-  final List<VDCardSmallConfigs> _cards;
+  List<VDCardSmallConfigs>? cards;
 
   @override
   Widget build(BuildContext context) {
+    final List<VDCardSmallConfigs> cardsList = cards ??
+        <VDCardSmallConfigs>[
+          VDCardSmallConfigs(
+            color: const Color(0xFFF2FE8D),
+            icon: Assets.mocks.images.star.image(),
+            title: "My bonuses",
+          ),
+          VDCardSmallConfigs(
+            color: const Color(0xFFB2D0CE),
+            icon: Assets.mocks.images.wallet.image(),
+            title: "My budget",
+          ),
+          VDCardSmallConfigs(
+            color: const Color(0xFFAA9E87),
+            icon: Assets.mocks.images.chart.image(),
+            title: "Finance analysis",
+          ),
+          VDCardSmallConfigs(
+            color: const Color(0xFFF2FE8D),
+            icon: Assets.mocks.images.star.image(),
+            title: OnboardingLocalizations.current.testLocal,
+          ),
+        ];
     return Container(
       color: const Color(0xFF1E1F1F),
       child: Column(
@@ -39,13 +61,13 @@ class HomeFincance extends StatelessWidget {
               itemBuilder: (_, idx) {
                 return VDCard(
                   size: VDCardSize.small,
-                  smallConfigs: _cards[idx],
+                  smallConfigs: cardsList[idx],
                 );
               },
               separatorBuilder: (_, sidx) => const SizedBox(
                 width: 14,
               ),
-              itemCount: _cards.length,
+              itemCount: cardsList.length,
             ),
           ),
         ],
@@ -53,26 +75,3 @@ class HomeFincance extends StatelessWidget {
     );
   }
 }
-
-List<VDCardSmallConfigs> mockSmallCards = <VDCardSmallConfigs>[
-  VDCardSmallConfigs(
-    color: const Color(0xFFF2FE8D),
-    icon: Assets.mocks.images.star.image(),
-    title: "My bonuses",
-  ),
-  VDCardSmallConfigs(
-    color: const Color(0xFFB2D0CE),
-    icon: Assets.mocks.images.wallet.image(),
-    title: "My budget",
-  ),
-  VDCardSmallConfigs(
-    color: const Color(0xFFAA9E87),
-    icon: Assets.mocks.images.chart.image(),
-    title: "Finance analysis",
-  ),
-  VDCardSmallConfigs(
-    color: const Color(0xFFF2FE8D),
-    icon: Assets.mocks.images.star.image(),
-    title: OnboardingLocalizations.current.testLocal,
-  ),
-];

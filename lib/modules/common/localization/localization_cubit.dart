@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hcm_ui_test/modules/common/databases/shared_preferences/shared_preferences_keys.dart';
 import 'package:hive/hive.dart';
@@ -27,6 +28,15 @@ class LocalizationCubit extends Cubit<LocalizationState> {
     String? currentLanguageCode =
         await _box?.get(SharedPreferencesKeys.currentLanguageCode);
 
+    Fluttertoast.showToast(
+        msg: "CurentLocale $currentLanguageCode",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.greenAccent,
+        textColor: Colors.white,
+        fontSize: 16.0);
+
     if (currentLanguageCode == null || currentLanguageCode.isEmpty) {
       currentLanguageCode = _getDefaultLocale().languageCode;
       await _box?.put(
@@ -49,7 +59,15 @@ class LocalizationCubit extends Cubit<LocalizationState> {
     );
 
     final savedData = _box?.get(SharedPreferencesKeys.currentLanguageCode);
-    print("VD DB savedData $savedData");
+
+    Fluttertoast.showToast(
+        msg: "CurentLocale $savedData",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.greenAccent,
+        textColor: Colors.white,
+        fontSize: 16.0);
 
     emit(
       state.copyWith(
