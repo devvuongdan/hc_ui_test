@@ -88,7 +88,8 @@ class _BottomBarBubbleState extends State<BottomBarBubble>
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(24), topRight: Radius.circular(24)),
           color: const Color(0xff1e1e1e).withOpacity(0.8)),
       height: widget.height,
       child: Stack(
