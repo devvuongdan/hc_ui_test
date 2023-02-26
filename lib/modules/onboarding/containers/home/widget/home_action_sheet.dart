@@ -147,7 +147,7 @@ class HomeActionSheet extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 76,
+          // height: 76,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
               gradient: const LinearGradient(
